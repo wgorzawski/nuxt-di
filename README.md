@@ -1,20 +1,11 @@
-<!--
-Get your module up and running quickly.
-
-Find and replace all on all files (CMD+SHIFT+F):
-- Name: My Module
-- Package name: my-module
-- Description: My new Nuxt module
--->
-
-# My Module
+# Nuxt DI
 
 [![npm version][npm-version-src]][npm-version-href]
 [![npm downloads][npm-downloads-src]][npm-downloads-href]
 [![License][license-src]][license-href]
 [![Nuxt][nuxt-src]][nuxt-href]
 
-My new Nuxt module for doing amazing things.
+> A Nuxt 3 module that adds Inversion of Control (IoC) and Dependency Injection (DI) support using the [Awilix](https://github.com/jeffijoe/awilix) library. It simplifies dependency management and helps structure code by automatically registering and resolving dependencies.
 
 - [✨ &nbsp;Release Notes](/CHANGELOG.md)
 <!-- - [🏀 Online playground](https://stackblitz.com/github/your-org/my-module?file=playground%2Fapp.vue) -->
@@ -22,20 +13,21 @@ My new Nuxt module for doing amazing things.
 
 ## Features
 
-<!-- Highlight some of the features your module provide here -->
-- ⛰ &nbsp;Foo
-- 🚠 &nbsp;Bar
-- 🌲 &nbsp;Baz
-
+- **Automatic Dependency Registration**: Define all dependencies in a single `container.ts` file, making it easy to manage and modify your application’s dependency graph.
+- **Flexible Registration Options**: Supports registering classes, functions, and values via Awilix’s `asClass`, `asFunction`, and `asValue` methods.
+- **Global Access to Container**: Dependencies registered in the container can be accessed globally across your Nuxt application, reducing the need for manual imports.
+- **Decorator-Based Injection**: Simplify dependency injection with the `@Inject` decorator, making code cleaner and easier to maintain.
+- **Auto-loading Capabilities**: Optionally, enable automatic loading of dependencies from specified directories, which is ideal for larger applications.
+- **Enhanced Modularity and Testability**: Encourages a decoupled code structure by separating dependency registration from usage, making it easy to swap or mock dependencies for testing.
 ## Quick Setup
 
 Install the module to your Nuxt application with one command:
 
 ```bash
-npx nuxi module add my-module
+npx nuxi module add nuxt-di
 ```
 
-That's it! You can now use My Module in your Nuxt app ✨
+That's it! You can now use Nuxt DI in your Nuxt app ✨
 
 
 ## Contribution
@@ -45,26 +37,26 @@ That's it! You can now use My Module in your Nuxt app ✨
   
   ```bash
   # Install dependencies
-  npm install
+  pnpm install
   
   # Generate type stubs
-  npm run dev:prepare
+  pnpm dev:prepare
   
   # Develop with the playground
-  npm run dev
+  pnpm dev
   
   # Build the playground
-  npm run dev:build
+  pnpm dev:build
   
   # Run ESLint
-  npm run lint
+  pnpm lint
   
   # Run Vitest
-  npm run test
-  npm run test:watch
+  pnpm test
+  pnpm test:watch
   
   # Release new version
-  npm run release
+  pnpm release
   ```
 
 </details>

@@ -1,5 +1,6 @@
 import { defineNuxtPlugin } from '#app'
+import { createContainer } from 'awilix';
 
-export default defineNuxtPlugin((_nuxtApp) => {
-  console.log('Plugin injected by my-module!')
-})
+export default defineNuxtPlugin((nuxtApp) => {
+  console.log('Plugin injected by nuxt-di!');
+});
