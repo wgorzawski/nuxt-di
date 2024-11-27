@@ -7,15 +7,7 @@ export default defineNuxtModule({
   },
   setup(options, nuxt) {
     const resolver = createResolver(import.meta.url);
-    addImportsDir(resolver.resolve('./runtime/decorators'));
-
-    const nuxt_property_decorator = addTemplate({
-      src: resolver.resolve("../templates/nuxt-property-decorator.ts"),
-      dst: nuxt.options.buildDir + "/nuxt-property-decorator.ts",
-      write: true,
-    })
-
-    nuxt.options.alias["nuxt-property-decorator"] = nuxt_property_decorator.dst
+    addImportsDir(resolver.resolve('./runtime'));
 
     nuxt.hook('vite:extendConfig', config => {
       if (config.esbuild) {
