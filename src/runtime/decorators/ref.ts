@@ -1,5 +1,3 @@
-import { Vue } from 'vue-facing-decorator';
-
 /**
  * `@Ref` decorator registers a reactive Vue reference.
  * @param key Optional key to identify the reference.

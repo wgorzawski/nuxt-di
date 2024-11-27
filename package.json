@@ -46,7 +46,8 @@
   "dependencies": {
     "@nuxt/kit": "3.14.1592",
     "awilix": "12.0.3",
-    "vue-facing-decorator": "3.0.4"
+    "vue-facing-decorator": "3.0.4",
+    "unhead": "1.11.13"
   },
   "devDependencies": {
     "@nuxt/devtools": "1.6.0",
