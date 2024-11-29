@@ -1,17 +1,18 @@
-import {useHead} from 'unhead';
+import { useHead } from 'unhead'
 
 /**
  * `@Meta` decorator that uses a method to provide meta information.
  * Updates meta tags for both SSR and client-side rendering.
  */
-export function Meta(): Function {
-  return function (target: any, propertyKey: string, descriptor: PropertyDescriptor) {
-    const originalMethod = descriptor.value;
+export function Meta<T>() {
+  return function (target: T, propertyKey: string, descriptor: PropertyDescriptor) {
+    const originalMethod = descriptor.value
 
-    descriptor.value = function (...args: any[]) {
-      return originalMethod.apply(this, args);
+
+    descriptor.value = function (...args: Record<string, string>[]) {
+      return originalMethod.apply(this, args)
     }
 
-    useHead(descriptor.value());
+    useHead(descriptor.value())
   }
 }

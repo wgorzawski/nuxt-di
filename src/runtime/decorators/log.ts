@@ -1,3 +1,3 @@
 export function Log() {
-    console.log('log decorator');
+  console.log('log decorator')
 }

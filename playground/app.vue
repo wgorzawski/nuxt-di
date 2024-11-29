@@ -6,7 +6,6 @@
 <script lang="ts">
 @NuxtComponent({})
 export default class App extends BaseComponent {
-
   @Meta()
   public getMeta() {
     return {
@@ -17,8 +16,7 @@ export default class App extends BaseComponent {
         { property: 'og:title', content: 'Home Page | My Awesome Webapp' },
         { property: 'og:type', content: 'website' },
       ],
-    };
+    }
   }
-
 }
 </script>

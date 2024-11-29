@@ -36,9 +36,9 @@
     "prepack": "nuxt-module-build build",
     "dev": "nuxi dev playground",
     "dev:build": "nuxi build playground",
-    "dev:prepare": "nuxt-module-build build --stub && nuxt-module-build prepare && nuxi prepare playground",
+    "dev:prepare": "nuxt-module-build build --stub && nuxt-module-build prepare && nuxi prepare playground && husky",
     "release": "npm run lint && npm run test && npm run prepack && changelogen --release && npm publish && git push --follow-tags",
-    "lint": "eslint .",
+    "lint": "eslint . --fix",
     "test": "vitest run",
     "test:watch": "vitest watch",
     "test:types": "vue-tsc --noEmit && cd playground && vue-tsc --noEmit"
@@ -61,6 +61,7 @@
     "nuxt": "3.14.159",
     "typescript": "5.6.3",
     "vitest": "2.1.4",
-    "vue-tsc": "2.1.10"
+    "vue-tsc": "2.1.10",
+    "husky": "9.1.6"
   }
 }
