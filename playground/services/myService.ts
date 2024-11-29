@@ -6,9 +6,9 @@ interface Config {
  * Example service class that uses a dependency from the container.
  */
 export default class MyService {
-  private config: Config
+  private config: Config;
   constructor({ config }: { config: Config }) {
-    this.config = config
+    this.config = config;
   }
 
   /**
@@ -17,6 +17,6 @@ export default class MyService {
    * @returns {string} The API URL.
    */
   getApiUrl(): string {
-    return this.config.apiUrl
+    return this.config.apiUrl;
   }
 }

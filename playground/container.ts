@@ -1,4 +1,4 @@
-import MyService from '~/services/myService'
+import MyService from '~/services/myService';
 
 /**
  * Function to register dependencies in the Awilix container.
@@ -13,14 +13,14 @@ import MyService from '~/services/myService'
  */
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export default ({ registerDependency, resolvers }: any): void => {
-  const { asClass, asValue, asFunction } = resolvers
+  const { asClass, asValue, asFunction } = resolvers;
 
-  registerDependency('myService', asClass(MyService).singleton())
-  registerDependency('config', asValue({ apiUrl: 'https://api.example.com' }))
+  registerDependency('myService', asClass(MyService).singleton());
+  registerDependency('config', asValue({ apiUrl: 'https://api.example.com' }));
   registerDependency(
     'logger',
     asFunction(() => ({
       log: (message: string) => console.log(`[LOG]: ${message}`),
     })).singleton(),
-  )
-}
+  );
+};

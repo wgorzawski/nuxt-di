@@ -5,8 +5,8 @@
 </template>
 
 <script setup lang="ts">
-const container = useContainer()
+const container = useContainer();
 
-const myService = container.resolve('myService')
-const url = myService.getApiUrl()
+const myService = container.resolve('myService');
+const url = myService.getApiUrl();
 </script>

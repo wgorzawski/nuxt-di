@@ -1,5 +1,5 @@
-import { defineNuxtModule, createResolver, addImportsDir, addPlugin } from '@nuxt/kit'
-import type { ModuleOptions } from '@nuxt/schema'
+import { defineNuxtModule, createResolver, addImportsDir, addPlugin } from '@nuxt/kit';
+import type { ModuleOptions } from '@nuxt/schema';
 
 export default defineNuxtModule<ModuleOptions>({
   meta: {
@@ -13,17 +13,17 @@ export default defineNuxtModule<ModuleOptions>({
     containerPath: '~/container',
   },
   setup(options, nuxt) {
-    const resolver = createResolver(import.meta.url)
+    const resolver = createResolver(import.meta.url);
 
     // Add runtime configuration for the container path
     nuxt.options.runtimeConfig.public.nuxtDi = {
       containerPath: options.containerPath,
-    }
+    };
 
     // Add the plugin to initialize the Awilix container
-    addPlugin(resolver.resolve('./runtime/plugin'))
+    addPlugin(resolver.resolve('./runtime/plugin'));
 
     // Register composables directory for auto-import
-    addImportsDir(resolver.resolve('./runtime/composables'))
+    addImportsDir(resolver.resolve('./runtime/composables'));
   },
-})
+});

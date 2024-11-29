@@ -1,6 +1,6 @@
-import { createContainer, type AwilixContainer, asClass, asFunction, asValue, type Resolver } from 'awilix'
+import { createContainer, type AwilixContainer, asClass, asFunction, asValue, type Resolver } from 'awilix';
 
-export const diContainer: AwilixContainer = createContainer()
+export const diContainer: AwilixContainer = createContainer();
 
 /**
  * Registers a dependency in the Awilix container.
@@ -14,7 +14,7 @@ export function registerDependency<T>(
   name: string,
   resolver: Resolver<T>,
 ): void {
-  diContainer.register(name, resolver)
+  diContainer.register(name, resolver);
 }
 
 /**
@@ -24,7 +24,7 @@ export const resolvers = {
   asClass,
   asFunction,
   asValue,
-}
+};
 
 /**
  * Loads dependencies into the Awilix container from a user-defined container file.
@@ -36,19 +36,19 @@ export const resolvers = {
 export async function loadDependencies(containerPath: string): Promise<void> {
   try {
     // @TODO: Add containerPath dynamic import
-    const { default: register } = await import(`../../playground/container`)
+    const { default: register } = await import('../../playground/container');
 
     if (typeof register === 'function') {
       register({
         registerDependency,
         resolvers,
-      })
+      });
     }
     else {
-      console.warn(`[NuxtDi] The container file at ${containerPath} does not export a default function.`)
+      console.warn(`[NuxtDi] The container file at ${containerPath} does not export a default function.`);
     }
   }
   catch (error) {
-    console.error(`[NuxtDi] Failed to load dependencies from ${containerPath}`, error)
+    console.error(`[NuxtDi] Failed to load dependencies from ${containerPath}`, error);
   }
 }
