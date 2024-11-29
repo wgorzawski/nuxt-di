@@ -1,20 +1,12 @@
 <template>
   <p ref="paragraph">
-    {{ message }}
+    {{ url }}
   </p>
 </template>
 
-<script lang="ts">
-@NuxtComponent({})
-export default class IndexPage extends BaseComponent {
-  @Ref('paragraph')
-  public paragraph!: HTMLParagraphElement
+<script setup lang="ts">
+const container = useContainer()
 
-  public message: string = 'hi from ssr!'
-
-  public mounted() {
-    this.message = 'hi!'
-    console.log('paragraph', this.paragraph)
-  }
-}
+const myService = container.resolve('myService')
+const url = myService.getApiUrl()
 </script>

@@ -1,25 +1,29 @@
-import { defineNuxtModule, createResolver, addImportsDir } from '@nuxt/kit'
+import { defineNuxtModule, createResolver, addImportsDir, addPlugin } from '@nuxt/kit'
+import type { ModuleOptions } from '@nuxt/schema'
 
-export default defineNuxtModule({
+export default defineNuxtModule<ModuleOptions>({
   meta: {
     name: 'nuxt-di',
     configKey: 'nuxtDi',
+    compatibility: {
+      nuxt: '>=3.0.0',
+    },
+  },
+  defaults: {
+    containerPath: '~/container',
   },
   setup(options, nuxt) {
     const resolver = createResolver(import.meta.url)
-    addImportsDir(resolver.resolve('./runtime'))
 
-    nuxt.hook('vite:extendConfig', (config) => {
-      if (config.esbuild) {
-        config.esbuild.tsconfigRaw ??= {}
-        if (typeof config.esbuild.tsconfigRaw === 'string') {
-          config.esbuild.tsconfigRaw = JSON.parse(config.esbuild.tsconfigRaw)
-        }
-        if (typeof config.esbuild.tsconfigRaw === 'object' && config.esbuild.tsconfigRaw) {
-          config.esbuild.tsconfigRaw.compilerOptions ??= {}
-          config.esbuild.tsconfigRaw.compilerOptions.experimentalDecorators = true
-        }
-      }
-    })
+    // Add runtime configuration for the container path
+    nuxt.options.runtimeConfig.public.nuxtDi = {
+      containerPath: options.containerPath,
+    }
+
+    // Add the plugin to initialize the Awilix container
+    addPlugin(resolver.resolve('./runtime/plugin'))
+
+    // Register composables directory for auto-import
+    addImportsDir(resolver.resolve('./runtime/composables'))
   },
 })
