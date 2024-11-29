@@ -17,10 +17,7 @@ export default createConfigForNuxt({
 })
   .append({
     rules: {
-      // Wymaga średników na końcu instrukcji
       semi: ['error', 'always'],
-
-      // Wymaga pojedynczych cudzysłowów w stringach
       quotes: ['error', 'single'],
     },
   });
