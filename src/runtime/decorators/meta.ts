@@ -8,7 +8,6 @@ export function Meta<T>() {
   return function (target: T, propertyKey: string, descriptor: PropertyDescriptor) {
     const originalMethod = descriptor.value
 
-
     descriptor.value = function (...args: Record<string, string>[]) {
       return originalMethod.apply(this, args)
     }
