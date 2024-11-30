@@ -1,4 +1,5 @@
 import MyService from '~/services/myService';
+import UserService from '~/services/userService';
 
 /**
  * Function to register dependencies in the Awilix container.
@@ -16,6 +17,7 @@ export default ({ registerDependency, resolvers }: any): void => {
   const { asClass, asValue, asFunction } = resolvers;
 
   registerDependency('myService', asClass(MyService).singleton());
+  registerDependency('userService', asClass(UserService).singleton());
   registerDependency('config', asValue({ apiUrl: 'https://api.example.com' }));
   registerDependency(
     'logger',
