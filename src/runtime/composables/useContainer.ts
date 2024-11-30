@@ -6,7 +6,7 @@ import { useNuxtApp } from '#app';
  *
  * @template T - The type of the Awilix container.
  * @throws {Error} If the container is not available in the Nuxt app context.
- * @returns {T} The Awilix dependency injection container instance.
+ * @returns {T} The Awilix dependency injection container instance or resolved dependency.
  */
 export function useContainer<T = AwilixContainer>(dependencyName?: string): T {
   const nuxtApp = useNuxtApp();
