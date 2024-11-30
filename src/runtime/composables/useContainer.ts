@@ -13,7 +13,7 @@ export function useContainer<T = AwilixContainer>(dependencyName?: string): T {
   const container = nuxtApp.$container as T;
 
   if (!container) {
-    throw new Error('[nuxt-awilix] Dependency Injection container is not available.');
+    throw new Error('[NuxtDi] Dependency Injection container is not available.');
   }
 
   if(!dependencyName) {
