@@ -8,7 +8,7 @@ import { useNuxtApp } from '#app';
  * @throws {Error} If the container is not available in the Nuxt app context.
  * @returns {T} The Awilix dependency injection container instance.
  */
-export function useContainer<T = AwilixContainer>(dependencyName?: string): T | AwilixContainer {
+export function useContainer<T = AwilixContainer>(dependencyName?: string): T {
   const nuxtApp = useNuxtApp();
   const container = nuxtApp.$container as AwilixContainer;
 
@@ -17,7 +17,7 @@ export function useContainer<T = AwilixContainer>(dependencyName?: string): T | 
   }
 
   if(!dependencyName) {
-    return container as AwilixContainer;
+    return container as T;
   }
 
   const resolvedDependency = container.resolve<T>(dependencyName);
