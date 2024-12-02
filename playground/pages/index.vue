@@ -1,6 +1,6 @@
 <template>
   <div class="home-page">
-    <p>{{ url }}</p>
+    <p>{{ apiUrl }}</p>
     <p>{{ user }}</p>
     <p>{{ userName }}</p>
   </div>
@@ -15,6 +15,5 @@
 
   const container = useContainer();
   const myService = container.resolve($MyService);
-  const url = myService.apiUrl;
-  const user = myService.user;
+  const { user, apiUrl } = myService;
 </script>
