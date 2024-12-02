@@ -10,7 +10,10 @@
     "nuxt",
     "nuxt3",
     "ioc",
-    "awilix"
+    "awilix",
+    "dependency injection",
+    "inversion of control",
+    "nuxt 3 ioc"
   ],
   "bugs": {
     "url": "https://github.com/wgorzawski/nuxt-di/issues"
