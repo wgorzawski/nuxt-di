@@ -1,3 +1,4 @@
+import { $MyService } from '~/symbol';
 import MyService from '~/services/myService';
 import UserService from '~/services/userService';
 
@@ -13,10 +14,10 @@ import UserService from '~/services/userService';
  * @returns {void}
  */
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-export default ({ registerDependency, resolvers }: any): void => {
+export default ({ registerDependency, resolvers, registerClass }: any): void => {
   const { asClass, asValue, asFunction } = resolvers;
 
-  registerDependency('myService', asClass(MyService).singleton());
+  registerClass($MyService, MyService);
   registerDependency('userService', asClass(UserService).singleton());
   registerDependency('config', asValue({ apiUrl: 'https://api.example.com' }));
   registerDependency(

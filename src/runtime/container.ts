@@ -18,6 +18,17 @@ export function registerDependency<T>(
 }
 
 /**
+ * Registers a dependency in the Awilix container as a class.
+ *
+ * @param {string} name - The name of the dependency to register.
+ * @param {any} dependencyClass - The class to register as a dependency.
+ * @returns {void}
+ */
+export function registerClass<T>(name: string | symbol, dependencyClass: new (...args: unknown[]) => T): void {
+  diContainer.register(name, asClass(dependencyClass).singleton());
+}
+
+/**
  * Provides convenient aliases for Awilix resolver types.
  */
 export const resolvers = {
@@ -41,6 +52,7 @@ export async function loadDependencies(containerPath: string): Promise<void> {
     if (typeof register === 'function') {
       register({
         registerDependency,
+        registerClass,
         resolvers,
       });
     }
