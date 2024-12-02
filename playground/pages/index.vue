@@ -1,9 +1,9 @@
 <template>
-  <p ref="paragraph">
-    {{ url }}
-    {{ user }}
-    {{ userName }}
-  </p>
+  <div class="home-page">
+    <p>{{ url }}</p>
+    <p>{{ user }}</p>
+    <p>{{ userName }}</p>
+  </div>
 </template>
 
 <script setup lang="ts">

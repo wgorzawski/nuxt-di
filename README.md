@@ -52,9 +52,11 @@ That's it! You can now use Nuxt DI in your Nuxt app ✨
 ## Usage
 ```html
 <template>
-  <p>{{ url }}</p>
-  <p>{{ user }}</p>
-  <p>{{ userName }}</p>
+  <div class="home-page">
+    <p>{{ url }}</p>
+    <p>{{ user }}</p>
+    <p>{{ userName }}</p>
+  </div>
 </template>
 
 <script setup lang="ts">
