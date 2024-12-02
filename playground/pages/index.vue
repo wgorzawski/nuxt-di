@@ -8,7 +8,7 @@
 
 <script setup lang="ts">
   import { $MyService } from '~/symbol';
-  import UserService from '~/services/userService';
+  import type UserService from '~/services/userService';
 
   const userService = useContainer<UserService>('userService');
   const userName = userService.userName;
