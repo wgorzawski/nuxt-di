@@ -1,9 +1,9 @@
 export default class UserService {
-  getUserName(): string {
+  public get userName(): string {
     return 'John';
   }
 
-  getUserSurname(): string {
+  public get userSurname(): string {
     return 'Doe';
   }
 }

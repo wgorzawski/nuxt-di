@@ -21,11 +21,11 @@ export default class MyService {
    *
    * @returns {string} The API URL.
    */
-  getApiUrl(): string {
+  public get apiUrl(): string {
     return this.config.apiUrl;
   }
 
-  getUser(): string {
-    return `${this.userService.getUserName()} ${this.userService.getUserSurname()}`;
+  public get user(): string {
+    return `${this.userService.userName} ${this.userService.userSurname}`;
   }
 }

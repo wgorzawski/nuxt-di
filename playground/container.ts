@@ -10,6 +10,7 @@ import UserService from '~/services/userService';
  *
  * @param {object} context - The context provided to register dependencies.
  * @param {Function} context.registerDependency - Function to register a dependency in the Awilix container.
+ * @param {Function} context.registerClass - Function to register a class as a dependency.
  * @param {object} context.resolvers - Aliases for Awilix resolver types (asClass, asFunction, asValue).
  * @returns {void}
  */
