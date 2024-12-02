@@ -9,6 +9,6 @@
   },
   "dependencies": {
     "nuxt": "^3.14.159",
-    "nuxt-di": "file:../src"
+    "nuxt-di": "^0.1.3"
   }
 }
