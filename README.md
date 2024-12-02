@@ -52,16 +52,13 @@ That's it! You can now use Nuxt DI in your Nuxt app ✨
 ## Usage
 ```html
 <template>
-  <p ref="paragraph">
-    {{ url }}
-    {{ user }}
-    {{ userName }}
-  </p>
+  <p>{{ url }}</p>
+  <p>{{ user }}</p>
+  <p>{{ userName }}</p>
 </template>
 
 <script setup lang="ts">
   import { $MyService } from '~/symbol';
-  import MyService from '~/services/myService';
   import UserService from '~/services/userService';
 
   const userService = useContainer<UserService>('userService');
