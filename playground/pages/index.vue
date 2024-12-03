@@ -3,6 +3,9 @@
     <p>{{ apiUrl }}</p>
     <p>{{ user }}</p>
     <p>{{ userName }}</p>
+    <br>
+    <p>{{ message }}</p>
+    <button @click="sendEvent">Send Event</button>
   </div>
 </template>
 
@@ -16,4 +19,17 @@
   const container = useContainer();
   const myService = container.resolve($MyService);
   const { user, apiUrl } = myService;
+
+  const message = ref('No events received.');
+
+  // Listen for "customEvent"
+  useEventListener('customEvent', (payload: string) => {
+    message.value = `Received: ${payload}`;
+  });
+
+  // Emit a "customEvent"
+  function sendEvent() {
+    console.log('sendEvent');
+    useEventEmitter('customEvent', 'Hello from Event');
+  }
 </script>
