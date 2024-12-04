@@ -1,4 +1,5 @@
-import { createContainer, type AwilixContainer, asClass, asFunction, asValue, type Resolver } from 'awilix';
+import { createContainer, type AwilixContainer, asClass, asFunction, asValue, type Resolver } from 'awilix/browser';
+import { EventSystem } from './eventSystem';
 
 export const diContainer: AwilixContainer = createContainer();
 
@@ -64,3 +65,9 @@ export async function loadDependencies(containerPath: string): Promise<void> {
     console.error(`[NuxtDi] Failed to load dependencies from ${containerPath}`, error);
   }
 }
+
+function runContainer(): void {
+  diContainer.register('eventSystem', asValue(new EventSystem()));
+}
+
+runContainer();
