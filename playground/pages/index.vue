@@ -29,7 +29,6 @@
 
   // Emit a "customEvent"
   function sendEvent() {
-    console.log('sendEvent');
     useEventEmitter('customEvent', 'Hello from Event');
   }
 </script>

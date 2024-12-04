@@ -1,4 +1,4 @@
-import { createContainer, type AwilixContainer, asClass, asFunction, asValue, type Resolver } from 'awilix';
+import { createContainer, type AwilixContainer, asClass, asFunction, asValue, type Resolver } from 'awilix/browser';
 import { EventSystem } from './eventSystem';
 
 export const diContainer: AwilixContainer = createContainer();
