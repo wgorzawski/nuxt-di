@@ -7,8 +7,8 @@
 
 > A Nuxt 3 module that adds Inversion of Control (IoC) and Dependency Injection (DI) support using the [Awilix](https://github.com/jeffijoe/awilix) library. It simplifies dependency management and helps structure code.
 
-<!-- - [✨ &nbsp;Release Notes](/CHANGELOG.md) -->
-<!-- - [🏀 Online playground](https://stackblitz.com/github/your-org/nuxt-di?file=playground%2Fapp.vue) -->
+- [✨ &nbsp;Release Notes](/CHANGELOG.md)
+- [🏀 Online playground](https://stackblitz.com/github/wgorzawski/nuxt-di?file=playground%2Fapp.vue)
 <!-- - [📖 &nbsp;Documentation](https://example.com) -->
 
 ## Features
