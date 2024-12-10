@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { diContainer, registerClass } from '../src/runtime/container';
+import { diContainer, registerClass } from 'nuxt-di';
 import UserService from '../playground/services/userService';
 
 describe('container.ts', () => {

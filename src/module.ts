@@ -1,5 +1,7 @@
 import { defineNuxtModule, createResolver, addImportsDir, addPlugin } from '@nuxt/kit';
 import type { ModuleOptions } from '@nuxt/schema';
+export * from './runtime/container';
+export * from './runtime/eventSystem';
 
 export default defineNuxtModule<ModuleOptions>({
   meta: {

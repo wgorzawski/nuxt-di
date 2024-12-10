@@ -1,5 +1,5 @@
 import { describe, it, expect, vi } from 'vitest';
-import { EventSystem } from '../src/runtime/eventSystem';
+import { EventSystem } from 'nuxt-di';
 
 describe('EventSystem', () => {
   it('should register and emit an event', () => {
