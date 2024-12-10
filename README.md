@@ -42,18 +42,48 @@ Create the `~/container.ts` file:
 ```typescript
 import { $MyService } from '~/symbol';
 import MyService from '~/services/myService';
+import UserService from '~/services/userService';
 
 export default ({ registerClass }: any): void => {
   registerClass($MyService, MyService);
+  registerDependency('userService', asClass(UserService).singleton());
 };
 ```
 That's it! You can now use Nuxt DI in your Nuxt app ✨
 
 ## Usage
+`services/userService.ts`
+```typescript
+export default class UserService {
+  public get userName(): string {
+    return 'John';
+  }
+
+  public get userSurname(): string {
+    return 'Doe';
+  }
+}
+```
+`services/myService.ts`
+```typescript
+import type UserService from './userService';
+
+export default class MyService {
+  private readonly userService: UserService;
+
+  constructor({ userService }: { userService: UserService }) {
+    this.userService = userService;
+  }
+
+  public get user(): string {
+    return `${this.userService.userName} ${this.userService.userSurname}`;
+  }
+}
+```
+`app.vue`
 ```html
 <template>
   <div class="home-page">
-    <p>{{ url }}</p>
     <p>{{ user }}</p>
     <p>{{ userName }}</p>
   </div>
@@ -68,7 +98,6 @@ That's it! You can now use Nuxt DI in your Nuxt app ✨
 
   const container = useContainer();
   const myService = container.resolve($MyService);
-  const url = myService.apiUrl;
   const user = myService.user;
 </script>
 ```
