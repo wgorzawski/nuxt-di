@@ -2,8 +2,9 @@ import { describe, it, expect, vi } from 'vitest';
 import { EventSystem } from 'nuxt-di';
 
 describe('EventSystem', () => {
+  const eventSystem = new EventSystem();
+
   it('should register and emit an event', () => {
-    const eventSystem = new EventSystem();
     const callback = vi.fn();
 
     eventSystem.on('testEvent', callback);
@@ -14,7 +15,6 @@ describe('EventSystem', () => {
   });
 
   it('should handle multiple listeners for the same event', () => {
-    const eventSystem = new EventSystem();
     const callback1 = vi.fn();
     const callback2 = vi.fn();
 
@@ -29,7 +29,6 @@ describe('EventSystem', () => {
   });
 
   it('should remove a listener with off', () => {
-    const eventSystem = new EventSystem();
     const callback = vi.fn();
 
     eventSystem.on('testEvent', callback);
@@ -40,7 +39,6 @@ describe('EventSystem', () => {
   });
 
   it('should clear all listeners for a specific event', () => {
-    const eventSystem = new EventSystem();
     const callback1 = vi.fn();
     const callback2 = vi.fn();
 
@@ -54,7 +52,6 @@ describe('EventSystem', () => {
   });
 
   it('should clear all listeners for all events', () => {
-    const eventSystem = new EventSystem();
     const callback1 = vi.fn();
     const callback2 = vi.fn();
 
@@ -69,7 +66,6 @@ describe('EventSystem', () => {
   });
 
   it('should handle emitting an event with no listeners', () => {
-    const eventSystem = new EventSystem();
 
     expect(() => {
       eventSystem.emit('nonExistentEvent', 'payload');
@@ -77,7 +73,6 @@ describe('EventSystem', () => {
   });
 
   it('should handle removing a listener that does not exist', () => {
-    const eventSystem = new EventSystem();
     const callback = vi.fn();
 
     expect(() => {

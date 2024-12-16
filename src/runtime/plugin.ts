@@ -1,5 +1,4 @@
-import { diContainer, loadDependencies } from './container';
-import { defineNuxtPlugin, useRuntimeConfig } from '#app';
+import { defineNuxtPlugin } from '#app';
 
 /**
  * Nuxt plugin to initialize and provide the Awilix dependency injection container.
@@ -11,12 +10,17 @@ import { defineNuxtPlugin, useRuntimeConfig } from '#app';
  * @returns {void}
  */
 export default defineNuxtPlugin(async (nuxtApp) => {
-  const config = useRuntimeConfig();
-  const containerPath = config.public.nuxtDi.containerPath;
+  // const containerPath = nuxtApp.$config.public.nuxtDi.containerPath;
 
-  // Load user-defined dependencies from the specified container file
-  await loadDependencies(containerPath);
+  const { default: containerModule } = await import('../../playground/container');
 
-  // Provide the container globally in the Nuxt app context
-  nuxtApp.provide('container', diContainer);
+  // console.log('plugin config', containerPath);
+
+  // console.log('plugin container', container);
+  //
+  // // Load user-defined dependencies from the specified container file
+  // // await loadDependencies(containerPath);
+  //
+  // // Provide the container globally in the Nuxt app context
+  nuxtApp.provide('containerTest', containerModule);
 });

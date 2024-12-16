@@ -1,11 +1,13 @@
 import { describe, it, expect } from 'vitest';
-import { diContainer, registerClass } from 'nuxt-di';
+import { Container } from 'nuxt-di';
 import UserService from '../playground/services/userService';
 
 describe('container.ts', () => {
+  const diContainer = new Container();
+
   it('should register and resolve a class dependency', () => {
     // Register UserService as a class dependency
-    registerClass('userService', UserService);
+    diContainer.registerClass('userService', UserService);
 
     // Resolve the dependency from the container
     const userService = diContainer.resolve<UserService>('userService');
@@ -15,7 +17,7 @@ describe('container.ts', () => {
 
   it('should resolve services and retain singleton instance', () => {
     // Register UserService as a singleton class
-    registerClass('userService', UserService);
+    diContainer.registerClass('userService', UserService);
 
     // Resolve the service twice from the container
     const userService1 = diContainer.resolve<UserService>('userService');
