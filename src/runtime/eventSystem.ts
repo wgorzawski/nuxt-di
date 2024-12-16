@@ -12,7 +12,7 @@ export class EventSystem {
    * @param eventName - The name of the event.
    * @param callback - The callback to invoke when the event is emitted.
    */
-  on(eventName: string, callback: EventCallback) {
+  public on(eventName: string, callback: EventCallback) {
     if (!this.events.has(eventName)) {
       this.events.set(eventName, []);
     }
@@ -24,7 +24,7 @@ export class EventSystem {
    * @param eventName - The name of the event.
    * @param callback - The callback to remove.
    */
-  off(eventName: string, callback: EventCallback) {
+  public off(eventName: string, callback: EventCallback) {
     const listeners = this.events.get(eventName);
     if (!listeners) return;
     this.events.set(
@@ -38,7 +38,7 @@ export class EventSystem {
    * @param eventName - The name of the event.
    * @param args - Arguments to pass to the event listeners.
    */
-  emit(eventName: string, ...args: unknown[]) {
+  public emit(eventName: string, ...args: unknown[]) {
     const listeners = this.events.get(eventName);
     if (!listeners) return;
     listeners.forEach((listener) => listener(...args));
@@ -48,7 +48,7 @@ export class EventSystem {
    * Clear all listeners for a given event or all events.
    * @param eventName - The name of the event to clear. If not provided, clears all events.
    */
-  clear(eventName?: string) {
+  public clear(eventName?: string) {
     if (eventName) {
       this.events.delete(eventName);
     } else {
