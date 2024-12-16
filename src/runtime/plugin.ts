@@ -1,5 +1,4 @@
 import { defineNuxtPlugin } from '#app';
-import { Container } from './container';
 
 /**
  * Nuxt plugin to initialize and provide the Awilix dependency injection container.
@@ -11,7 +10,7 @@ import { Container } from './container';
  * @returns {void}
  */
 export default defineNuxtPlugin(async (nuxtApp) => {
-  const containerPath = nuxtApp.$config.public.nuxtDi.containerPath;
+  // const containerPath = nuxtApp.$config.public.nuxtDi.containerPath;
 
   const { default: containerModule } = await import('../../playground/container');
 
