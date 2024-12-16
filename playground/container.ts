@@ -3,9 +3,9 @@ import { $MyService } from '~/symbol';
 import MyService from '~/services/myService';
 import UserService from '~/services/userService';
 
-const globalContainer = new Container();
+const container = new Container();
 
-globalContainer.registerClass($MyService, MyService);
-globalContainer.registerClass('userService', UserService);
+container.registerClass($MyService, MyService);
+container.registerClass('userService', UserService);
 
-export default globalContainer;
+export default container;
